@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Rahaf Albunni">
+<title>محاكاة نظام تذاكر QR | إحصائيات المتحف</title>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/elmessiri-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/sourceserif4-latin.woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon"><img src="img/logo-mark.png" alt=""></span>
+      <span data-i18n="brand">إحصائيات المتحف</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="navHome">الرئيسية</a></li>
+      <li><a href="dashboard.html" data-i18n="navDashboard">لوحة المعلومات</a></li>
+      <li><a href="entry.html" data-i18n="navEntry">الإدخال اليدوي</a></li>
+      <li><a href="simulation.html" class="active" data-i18n="navSimulation">محاكاة QR</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h1 data-i18n="simPageTitle">محاكاة نظام تذاكر QR</h1>
+  <p data-i18n="simPageSubtitle">محاكاة حية توضح كيف يعمل نظام التذاكر المقترح: كل زائر يأخذ من موظف الساحة المركزية تذكرة QR تحمل عدد الأشخاص، عدد المتاحف المشمولة، ووقت الشراء — وتُمسح عند مدخل ومخرج كل متحف وغرفة الورشة.</p>
+</section>
+
+<div class="container report-section">
+
+  <button type="button" class="btn-solid" id="simToggleBtn" data-i18n="simPauseBtn">إيقاف مؤقت</button>
+
+  <div class="sim-stage" id="simStage">
+    <div class="sim-visitors" id="simVisitors"></div>
+  </div>
+
+  <h2 class="section-heading" data-i18n="simLegendTitle">أنواع رحلات الزوار (حي)</h2>
+  <div class="sim-legend" id="simLegend"></div>
+
+</div>
+
+<footer>
+  <p data-i18n="footer">© 2026 نظام إحصائيات المتحف — نموذج تجريبي ببيانات وهمية.</p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/mockData.js"></script>
+<script src="js/simulation.js"></script>
+</body>
+</html>
+
+

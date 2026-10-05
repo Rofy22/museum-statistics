@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Rahaf Albunni">
+<title>إحصائيات المتحف | Museum Statistics</title>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/elmessiri-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/sourceserif4-latin.woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon"><img src="img/logo-mark.png" alt=""></span>
+      <span data-i18n="brand">إحصائيات المتحف</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-i18n="navHome">الرئيسية</a></li>
+      <li><a href="dashboard.html" data-i18n="navDashboard">لوحة المعلومات</a></li>
+      <li><a href="entry.html" data-i18n="navEntry">الإدخال اليدوي</a></li>
+      <li><a href="simulation.html" data-i18n="navSimulation">محاكاة QR</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section class="landing-hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="hero-eyebrow" data-i18n="heroEyebrow">نظام إحصائيات ذكي لمجمع المتاحف</span>
+      <h1 data-i18n="heroTitle">اعرف حركة كل زائر داخل متاحف دار الفنون الإسلامية</h1>
+      <p data-i18n="heroSubtitle">نظام واحد يرصد كل دخول وخروج، يحسب مدة كل زيارة، ويكشف من دخل المجمع ولم يزر أي متحف — في لوحة حية تتحدث كل لحظة.</p>
+      <div class="hero-actions">
+        <a href="dashboard.html" class="btn primary" data-i18n="ctaDashboard">افتح لوحة المعلومات الحية</a>
+        <a href="simulation.html" class="btn ghost" data-i18n="ctaSimulation">شاهد محاكاة نظام التذاكر</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 220">
+        <defs>
+          <linearGradient id="sparkGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#dbbe6a" stop-opacity="0.45"></stop>
+            <stop offset="100%" stop-color="#dbbe6a" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+        <path class="spark-fill" d="M10,170 L45,150 L85,160 L125,110 L165,130 L205,80 L245,95 L285,55 L325,70 L365,30 L365,200 L10,200 Z"></path>
+        <path class="spark-line" d="M10,170 L45,150 L85,160 L125,110 L165,130 L205,80 L245,95 L285,55 L325,70 L365,30"></path>
+        <circle class="spark-ping" cx="365" cy="30" r="6"></circle>
+        <circle class="spark-dot" cx="365" cy="30" r="5"></circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="stat-band">
+    <div class="stat-tile">
+      <div class="stat-value" id="statVisitors">0</div>
+      <div class="stat-label" data-i18n="statVisitorsLabel">زائر خلال آخر 90 يوماً</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-value" id="statMuseums">0</div>
+      <div class="stat-label" data-i18n="statMuseumsLabel">متاحف مربوطة بنظام واحد</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-value" id="statDwell">0</div>
+      <div class="stat-label" data-i18n="statDwellLabel">دقيقة متوسط مدة الزيارة</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-value" id="statWander">0%</div>
+      <div class="stat-label" data-i18n="statWanderLabel">من الزوار لم يدخلوا أي متحف</div>
+    </div>
+  </div>
+
+  <section class="mini-chart-section">
+    <h2 class="section-heading" data-i18n="miniChartTitle">توزيع الزيارات بين المتاحف الخمسة</h2>
+    <div class="mini-chart" id="miniChart"></div>
+  </section>
+
+  <section class="features" style="margin:48px 0 56px;">
+    <div class="feature-card landing-feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.2 15.8a8 8 0 0 1 15.6 0"/><path d="M7.6 16a4.5 4.5 0 0 1 8.8 0"/><circle cx="12" cy="16.3" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+      <h3 data-i18n="feat1Title">قراءة حيّة مستمرة</h3>
+      <p data-i18n="feat1Desc">الأرقام تتحدث لحظة بلحظة، كأنها قادمة مباشرة من أجهزة عدّ فعلية عند كل باب.</p>
+    </div>
+    <div class="feature-card landing-feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 9.2l-1.8 5.6-5.6 1.8 1.8-5.6z"/></svg></div>
+      <h3 data-i18n="feat2Title">كشف الزوار المتجولين</h3>
+      <p data-i18n="feat2Desc">مقارنة تلقائية بين سجل البوابة الرئيسية وسجلات أبواب المتاحف الخمسة.</p>
+    </div>
+    <div class="feature-card landing-feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></div>
+      <h3 data-i18n="feat3Title">تقارير مواسم وفعاليات</h3>
+      <p data-i18n="feat3Desc">قارني الإقبال بين الأيام العادية والمواسم والفعاليات الخاصة بضغطة واحدة.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p data-i18n="footer">© 2026 نظام إحصائيات المتحف — نموذج تجريبي ببيانات وهمية.</p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/mockData.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>
+
+

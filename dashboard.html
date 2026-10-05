@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Rahaf Albunni">
+<title>لوحة المعلومات | إحصائيات المتحف</title>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/cairo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/elmessiri-arabic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/sourceserif4-latin.woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon"><img src="img/logo-mark.png" alt=""></span>
+      <span data-i18n="brand">إحصائيات المتحف</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="navHome">الرئيسية</a></li>
+      <li><a href="dashboard.html" class="active" data-i18n="navDashboard">لوحة المعلومات</a></li>
+      <li><a href="entry.html" data-i18n="navEntry">الإدخال اليدوي</a></li>
+      <li><a href="simulation.html" data-i18n="navSimulation">محاكاة QR</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h1 data-i18n="dashboardTitle">لوحة إحصائيات الزوار</h1>
+  <p data-i18n="dashboardSubtitle">نظرة شاملة على حركة الزوار عبر متاحف المجمع الخمسة، بناءً على بيانات تجريبية توضّح شكل النظام المقترح.</p>
+  <div class="live-indicator" id="liveIndicator">
+    <span class="live-dot"></span>
+    <span data-i18n="liveLabel">قراءة مباشرة ومستمرة من نقاط العدّ</span>
+  </div>
+</section>
+
+<div class="container">
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all" data-i18n="filterAll">كل الفترة</button>
+    <button class="filter-btn" data-filter="regular" data-i18n="filterRegular">أيام عادية</button>
+    <button class="filter-btn" data-filter="event" data-i18n="filterEvent">فعالية خاصة</button>
+  </div>
+
+  <div class="time-range-card">
+    <h3 data-i18n="timeRangeTitle">حساب عدد الزوار بين وقتين</h3>
+    <div class="form-field">
+      <label for="hourRangeFrom" data-i18n="timeRangeFrom">من الساعة</label>
+      <input type="number" id="hourRangeFrom" min="0" max="23" step="1" value="9">
+    </div>
+    <div class="form-field">
+      <label for="hourRangeTo" data-i18n="timeRangeTo">إلى الساعة</label>
+      <input type="number" id="hourRangeTo" min="0" max="23" step="1" value="13">
+    </div>
+    <button type="button" class="btn-solid" id="hourRangeBtn" data-i18n="timeRangeButton">احسب</button>
+    <div class="time-range-result">
+      <div class="kpi-value" id="hourRangeResult">0</div>
+      <div class="kpi-label" data-i18n="timeRangeResultLabel">عدد الزوار في هذه الفترة</div>
+    </div>
+    <p class="time-range-hint" data-i18n="timeRangeHint">بحسب الفلتر المختار أعلاه، ووقت دخول الزائر للمجمع (24 ساعة).</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-value" id="kpiTotal">0</div>
+      <div class="kpi-label" data-i18n="kpiTotal">إجمالي زوار المجمع</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" id="kpiAtLeastOne">0</div>
+      <div class="kpi-label" data-i18n="kpiAtLeastOne">دخلوا متحفاً واحداً على الأقل</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" id="kpiWanderers">0</div>
+      <div class="kpi-label" data-i18n="kpiWanderers">لم يدخلوا أي متحف</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" id="kpiAvgDwell">0</div>
+      <div class="kpi-label" data-i18n="kpiAvgDwell">متوسط مدة التواجد (دقيقة)</div>
+    </div>
+  </div>
+
+  <h2 class="section-heading" data-i18n="museumCardsTitle">إحصائيات كل متحف على حِدة</h2>
+  <div class="museum-grid" id="museumCards"></div>
+
+</div>
+
+<footer>
+  <p data-i18n="footer">© 2026 نظام إحصائيات المتحف — نموذج تجريبي ببيانات وهمية.</p>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/mockData.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
+
+
